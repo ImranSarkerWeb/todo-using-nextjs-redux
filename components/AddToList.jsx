@@ -2,11 +2,18 @@
 import React, { useState } from "react";
 import { BsCardChecklist, BsPlus } from "react-icons/bs";
 import { motion } from "framer-motion";
+import { useDispatch } from "react-redux";
+import { ADD_TO_LIST } from "@/context/actions/toDoActions";
 
 const AddToList = () => {
   const [value, setValue] = useState("");
 
-  const handleClick = () => {};
+  const dispatch = useDispatch();
+
+  const handleClick = () => {
+    dispatch(ADD_TO_LIST(value));
+    setValue("");
+  };
 
   return (
     <div className="w-full flex items-center justify-center px-8 py-4 rounded-lg bg-zinc-800 gap-4 ">
